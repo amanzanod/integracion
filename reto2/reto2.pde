@@ -13,9 +13,7 @@ boolean run;
  * Función inicialización
  */
 void setup() {
-  size(800, 400); 
-  // size(800, 400, P2D); 
-  // size(800, 400, P3D); 
+  size(800, 400);
   
   background(0, 0, 0);
   stroke(255, 255, 255);
@@ -49,7 +47,9 @@ void draw() {
   textSize(30);
   text(time_countdown/1000 + " segundos", 325, 230);
   
+  // Si run está activo y el tiempo de cuenta atrás es mayor que 0.
   if ((run == true) && (time_countdown > 0)) { 
+    // Se resta a la cuenta atrás el tiempo que ha pasado desde el último fotograma.
     time_countdown = time_countdown - time_delta;
   }
   
@@ -59,6 +59,7 @@ void draw() {
  * Captura click ratón
  */
 void mousePressed() {
+  // Cuando se hace clic en el botón izquierdo, se activa run.
   if (mouseButton == LEFT){
       run = true;    
    }  
