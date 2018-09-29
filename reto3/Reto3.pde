@@ -5,7 +5,7 @@ int time_now;
 int time_old;
 int time_delta;
 int time_total;
-int time_countdown;
+float time_countdown;
 boolean run;
 
 
@@ -19,10 +19,10 @@ void setup() {
   stroke(255, 255, 255);
   
   // No es un valor exacto.
-  frameRate (200);
+  frameRate (24);
   
   time_old = 0;
-  time_countdown = 10000;
+  time_countdown = 0;
 }
       
 /*
@@ -48,9 +48,9 @@ void draw() {
   text(time_countdown/1000 + " segundos", 325, 230);
   
   // Si run está activo y el tiempo de cuenta atrás es mayor que 0.
-  if ((run == true) && (time_countdown > 0)) { 
+  if (run == true) { 
     // Se resta a la cuenta atrás el tiempo que ha pasado desde el último fotograma.
-    time_countdown = time_countdown - time_delta;
+    time_countdown = time_countdown + time_delta;
   }
   
 }
